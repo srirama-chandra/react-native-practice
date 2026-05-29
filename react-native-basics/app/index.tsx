@@ -1,11 +1,25 @@
-import { Image, Text, View } from 'react-native';
+import { useState } from 'react';
+import { TextInput, View } from 'react-native';
 
 export default function Home() {
+  const [userName, setUserName] = useState("");
+  console.log(userName)
   return(
     <View>
-      <Text>Hello</Text>
-      {/* <Image style={{height:250, width:350, margin:10 }} source={{uri:"https://chaicode.com/assets/mobile-dev-light-CL3q443J.webp"}}/> */}
-      <Image source={require('@/assets/images/nature-unsplash.jpg')} style={{height:650, width:350, marginLeft:10}}/>
+      <TextInput 
+        placeholder='Enter Your Username'
+        placeholderTextColor={"black"}
+        style={{
+          borderWidth:1,
+          borderColor:'black',
+          borderRadius:4,
+          marginVertical:5,
+          marginHorizontal:10,
+          padding:8,
+          fontSize: 16
+        }}
+        onChangeText={setUserName}
+      />
     </View>
   )
 }
