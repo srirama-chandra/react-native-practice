@@ -1,19 +1,48 @@
 
 import { useState } from "react";
-import { View, Pressable, Text, ScrollView, Button, Switch } from "react-native";
+import { View, Pressable, Text, ScrollView, Button, Switch, FlatList } from "react-native";
 
 export default function Home() {
 
-  const [darkMode, setDarkMode] = useState(false);
+  const users = [
+  {
+    id: 1,
+    name: "Rahul Sharma",
+    email: "rahul@example.com",
+    age: 24,
+  },
+  {
+    id: 2,
+    name: "Priya Reddy",
+    email: "priya@example.com",
+    age: 27,
+  },
+  {
+    id: 3,
+    name: "Arjun Kumar",
+    email: "arjun@example.com",
+    age: 22,
+  },
+  {
+    id: 4,
+    name: "Sneha Patel",
+    email: "sneha@example.com",
+    age: 29,
+  },
+  {
+    id: 5,
+    name: "Vikram Singh",
+    email: "vikram@example.com",
+    age: 31,
+  },
+];
 
-  return (
-    <ScrollView style={{flex:1, padding:2, backgroundColor:'black'}}>
-      <Switch
-        value={darkMode}
-        onValueChange={setDarkMode}
-        thumbColor={'white'}
-        trackColor={{false:'#7E8274', true:'green'}}
-      />
-    </ScrollView>
-  );
+  return(
+    <FlatList
+      data={users}
+      keyExtractor={ (item) => item.id.toString() }
+      renderItem={ ({item}) => <Text>{item.name}</Text>}
+      ItemSeparatorComponent={() => <View style={{height:1, backgroundColor:'black'}}/>}
+    />
+  )
 }
