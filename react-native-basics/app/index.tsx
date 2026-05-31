@@ -1,22 +1,17 @@
-import { StyleSheet, Text } from "react-native";
-import React from "react";
-import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import { StyleSheet, Text, View, useWindowDimensions } from 'react-native'
+import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const HomePage = () => {
-  const insetValues = useSafeAreaInsets();
+  const {height, width} = useWindowDimensions();
   return (
-    <SafeAreaView style={{flex:1, paddingHorizontal:16, paddingVertical:12}}>
-      <Text style={styles.heading}>Hello World</Text>
+    <SafeAreaView>
+      <Text>HomePage</Text>
+      <Text>{width>768 ? "Landscape": "Potrait"}</Text>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage
 
-const styles = StyleSheet.create({
-  heading: {
-    color: 'black',
-    fontWeight: 600,
-    fontSize: 32
-  }
-});
+const styles = StyleSheet.create({})
