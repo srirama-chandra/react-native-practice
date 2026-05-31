@@ -1,23 +1,22 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import React from "react";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 const HomePage = () => {
   const insetValues = useSafeAreaInsets();
   return (
-    <View
-      style={{
-        paddingTop: insetValues.top,
-        paddingBottom: insetValues.bottom,
-        paddingLeft: insetValues.left,
-        paddingRight: insetValues.right,
-      }}
-    >
-      <Text>Home Page</Text>
-    </View>
+    <SafeAreaView style={{flex:1, paddingHorizontal:16, paddingVertical:12}}>
+      <Text style={styles.heading}>Hello World</Text>
+    </SafeAreaView>
   );
 };
 
 export default HomePage;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  heading: {
+    color: 'black',
+    fontWeight: 600,
+    fontSize: 32
+  }
+});
