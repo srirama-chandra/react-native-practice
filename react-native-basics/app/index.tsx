@@ -1,17 +1,23 @@
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { View, Button, KeyboardAvoidingView, TextInput, Platform } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
-export default function Home() {
+const HomePage = () => {
+  const insetValues = useSafeAreaInsets();
   return (
-    <SafeAreaView style={{flex:1}}>
-    <KeyboardAvoidingView style={{flex:1}} behavior={Platform.OS==="ios"? "padding": "height"} keyboardVerticalOffset={100}>
-      <View style={{flex:1, justifyContent:'flex-start'}}>
-        <TextInput style={{borderColor:'black', borderWidth:1}}/>
-        <TextInput style={{borderColor:'black', borderWidth:1}}/>
-        <Button title="Click" color={'green'}/>
-      </View>
-    </KeyboardAvoidingView>
-    </SafeAreaView>
-  )
-}
+    <View
+      style={{
+        paddingTop: insetValues.top,
+        paddingBottom: insetValues.bottom,
+        paddingLeft: insetValues.left,
+        paddingRight: insetValues.right,
+      }}
+    >
+      <Text>Home Page</Text>
+    </View>
+  );
+};
+
+export default HomePage;
+
+const styles = StyleSheet.create({});
