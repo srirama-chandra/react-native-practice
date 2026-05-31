@@ -1,47 +1,44 @@
 import {
+  ColorSchemeName,
   Pressable,
   StyleSheet,
   Text,
-  View,
-  useWindowDimensions,
+  useColorScheme,
 } from "react-native";
-import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import * as ScreenOrientation from "expo-screen-orientation";
+import React, { useState } from "react";
 
 const HomePage = () => {
-  const { height, width } = useWindowDimensions();
-
-  const onPotrait = async () => {
-    await ScreenOrientation.lockAsync(
-      ScreenOrientation.OrientationLock.PORTRAIT_UP,
-    );
-  };
-
-  const onLandscape = async () => {
-    await ScreenOrientation.lockAsync(
-      ScreenOrientation.OrientationLock.LANDSCAPE,
-    );
+  const devicePreferredTheme = useColorScheme();
+  const [mode, setMode] = useState<ColorSchemeName>(devicePreferredTheme);
+  const isDark = mode === "dark";
+  const toggleTheme = () => {
+    setMode((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Text>HomePage</Text>
-      <Text>{width > height ? "Landscape" : "Potrait"}</Text>
-      <View style={{ flexDirection: "row", gap: 5 }}>
-        <Pressable
-          onPress={onPotrait}
-          style={{ padding: 16, backgroundColor: "green" }}
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: isDark ? "black" : "white",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Pressable
+        onPress={toggleTheme}
+        style={{ backgroundColor: isDark ? "white" : "black" }}
+      >
+        <Text
+          style={{
+            color: isDark ? "black" : "white",
+            padding: 16,
+            fontWeight: 900,
+          }}
         >
-          <Text>Rotate Potrait</Text>
-        </Pressable>
-        <Pressable
-          onPress={onLandscape}
-          style={{ padding: 16, backgroundColor: "purple" }}
-        >
-          <Text>Rotate Landscape</Text>
-        </Pressable>
-      </View>
+          {isDark ? "Light Mode" : "Dark Mode"}
+        </Text>
+      </Pressable>
     </SafeAreaView>
   );
 };
