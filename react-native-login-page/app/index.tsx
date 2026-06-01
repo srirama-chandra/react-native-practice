@@ -106,6 +106,7 @@ export default function Index() {
               />
             </View>
             <Pressable
+              onPress={() => alert("Login Successful")}
               style={{
                 alignItems: "center",
                 backgroundColor: "#EFFF3D",
