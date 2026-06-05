@@ -2,16 +2,16 @@ import { StyleSheet, Text, View, Button } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 
-const Profile = () => {
+const Details = () => {
   const navigation = useNavigation<any>();
   return (
     <View>
-      <Text>Profile</Text>
-      <Button title='Details' onPress={() => navigation.navigate('Details')}/>
+      <Text>Details</Text>
+      <Button title='Home' onPress={() => navigation.popTo('Home')}/>
     </View>
   )
 }
 
-export default Profile
+export default Details
 
 const styles = StyleSheet.create({})
