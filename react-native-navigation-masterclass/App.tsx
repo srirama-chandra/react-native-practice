@@ -1,9 +1,8 @@
-import { Text, View } from 'react-native';
-import StaticNativeStackNavigator from './src/navigation/StaticNativeStackNavigator';
-import DynamicNativeStackNavigation from './src/navigation/DynamicNativeStackNavigator';
+import DynamicTabNavigation from './src/navigation/DynamicTabNavigation';
+import StaticBottomTab from './src/navigation/StaticBottomTabNavigation';
 
 export default function App() {
   return (
-    <DynamicNativeStackNavigation/>
+    <DynamicTabNavigation/>
   );
 }

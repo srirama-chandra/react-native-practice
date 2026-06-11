@@ -9,12 +9,9 @@ const MyStack = createNativeStackNavigator();
 function StackNavigation() {
     return (
         <MyStack.Navigator>
-            <MyStack.Screen name="Home" component={HomeScreen} options={{
-                headerTintColor:'blue',
-                title:"Home Page",
-            }}/>
+            <MyStack.Screen name="Home" component={HomeScreen}/>
             <MyStack.Screen name="Profile" component={ProfileScreen}/>
-            <MyStack.Screen name="Details" component={DetailsScreen} />
+            <MyStack.Screen name="Details" component={DetailsScreen}/>
         </MyStack.Navigator>
     )
 }
