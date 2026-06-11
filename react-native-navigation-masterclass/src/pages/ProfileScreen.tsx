@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const ProfileScreen = () => {
+const ProfileScreen = ({route} : any) => {
+  const { name } = route.params;
+  console.log(name)
   return (
     <View>
       <Text>ProfileScreen</Text>
