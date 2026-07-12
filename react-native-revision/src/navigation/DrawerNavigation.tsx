@@ -7,7 +7,7 @@ const Drawer = createDrawerNavigator()
 
 export function MyDrawer() {
     return (
-        <Drawer.Navigator screenOptions={{}} initialRouteName="Home">
+        <Drawer.Navigator screenOptions={{}} initialRouteName="Home" >
             <Drawer.Screen name="Home" component={MyTabNavigation}/>
             <Drawer.Screen name="About" component={AboutPage}/>
         </Drawer.Navigator>
@@ -16,7 +16,7 @@ export function MyDrawer() {
 
 export function Navigation() {
     return (
-        <NavigationContainer>
+        <NavigationContainer >
             <MyDrawer/>
         </NavigationContainer>
     )
