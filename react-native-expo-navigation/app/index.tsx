@@ -11,7 +11,7 @@ export default function Index() {
       }}
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
-      <Link href={'/profile/123/456'}>Profile All Catch Route</Link>
+      <Link href={'/login'}>Login</Link>
     </View>
   );
 }
