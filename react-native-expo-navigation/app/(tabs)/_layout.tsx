@@ -1,5 +1,5 @@
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { Tabs } from "expo-router";
+import { Drawer } from 'expo-router/drawer';
 import { TouchableOpacity, View, Text } from "react-native";
 import { Ionicons } from '@expo/vector-icons'
 
@@ -22,9 +22,5 @@ function MyTabNavigation({state, descriptors, navigation}:BottomTabBarProps) {
 }
 
 export default function TabLayout() {
-    return <Tabs tabBar={ (props) => <MyTabNavigation {...props}/>}>
-        <Tabs.Screen name="index" options={{title:"Home"}}/>
-        <Tabs.Screen name="Profile" options={{title:"Profile"}}/>
-        <Tabs.Screen name="Settings" options={{title:"Settings"}}/>
-    </Tabs>
+    return <Drawer/>
 }
