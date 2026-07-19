@@ -1,9 +1,10 @@
 import { Text, View } from "react-native";
 import useAccelerometer from "./hooks/useAccelerometer";
+import useMagnetoMeter from "./hooks/useMagnetoMeter";
 
 export default function Index() {
 
-  const { aX, aY, aZ } = useAccelerometer();
+  const { available, header } = useMagnetoMeter();
 
   return (
     <View
@@ -14,9 +15,9 @@ export default function Index() {
       }}
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
-      <Text>aX {aX}</Text>
-      <Text>aY {aY}</Text>
-      <Text>aZ {aZ}</Text>
+      <Text>{available}</Text>
+      <Text>{header.toFixed(0)}°</Text>
+
     </View>
   );
 }
