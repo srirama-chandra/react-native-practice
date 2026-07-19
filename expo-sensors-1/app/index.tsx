@@ -1,10 +1,11 @@
 import { Text, View } from "react-native";
 import useAccelerometer from "./hooks/useAccelerometer";
 import useMagnetoMeter from "./hooks/useMagnetoMeter";
+import useDeviceMotionSensor from "./hooks/useDeviceMotion";
 
 export default function Index() {
 
-  const { available, header } = useMagnetoMeter();
+  const { available, shakeCount } = useDeviceMotionSensor();
 
   return (
     <View
@@ -16,7 +17,7 @@ export default function Index() {
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
       <Text>{available}</Text>
-      <Text>{header.toFixed(0)}°</Text>
+      <Text>{shakeCount}</Text>
 
     </View>
   );
