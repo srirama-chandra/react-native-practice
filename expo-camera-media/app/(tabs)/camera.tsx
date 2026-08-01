@@ -1,9 +1,10 @@
 
-import { Alert, Button, StyleSheet } from 'react-native'
+import { Alert, Button, Linking, StyleSheet } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { ThemedText } from '@/components/themed-text'
 import { CameraView, useCameraPermissions, useMicrophonePermissions } from 'expo-camera';
 import { SafeAreaView } from 'react-native-safe-area-context'
+import * as MediaLibrary from 'expo-media-library';
 
 
 const Camera = () => {
@@ -35,13 +36,39 @@ const Camera = () => {
     }
     setRecording(true);
     const video = await cameraRef.current?.recordAsync();
-    if(video?.uri) setURI(video.uri);
-    Alert.alert(`Video Recorded at ${uri}`)
+    if(video?.uri) {
+      setURI(video.uri);
+      await saveToLibrary(video?.uri);
+
+      Alert.alert(`Video Saved In The Gallery`);
+    }
+    
     setRecording(false);
   }
 
   const stopRecording = async () => {
     cameraRef.current?.stopRecording();
+  }
+
+  const saveToLibrary = async (uri: string) => {
+    const { granted, canAskAgain } = await MediaLibrary.requestPermissionsAsync(true);
+
+    if(!granted) {
+      if(!canAskAgain) {
+        Alert.alert("Photo Library Access Denied",
+          "Enable Photo Library Access In Settings",
+          [
+            {"text": "Cancel", style:'cancel'},
+            {"text": "Open Settings", onPress: () => Linking.openSettings()}
+          ]
+        )
+      }
+      return;
+    }
+
+    const asset = await MediaLibrary.saveToLibraryAsync(uri);
+    return asset
+
   }
 
   return (
