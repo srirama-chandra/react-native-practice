@@ -1,3 +1,41 @@
 # macOS
 .DS_Store
 
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native / credentials
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.pem
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.log
+
+# env
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# generated native folders (Expo CNG)
+ios/
+android/
