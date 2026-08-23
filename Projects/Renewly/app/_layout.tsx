@@ -4,6 +4,8 @@ import { SplashScreen, Stack } from "expo-router";
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 
+SplashScreen.preventAutoHideAsync();
+
 export default function RootLayout() {
 
   const [fontsLoaded] = useFonts({
@@ -26,7 +28,10 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar style='inverted'/>
-      <Stack screenOptions={{headerShown: false}}/>
+      <Stack screenOptions={{headerShown: false}} initialRouteName='(tabs)'>
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="(auth)" />
+      </Stack>
     </>  
   )
 }
