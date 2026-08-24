@@ -267,7 +267,7 @@
   }
 
   .auth-title {
-    @apply font-sans-bold text-primary text-3xl;
+    @apply font-sans-bold text-primary text-center text-3xl;
   }
 
   .auth-subtitle {
@@ -290,8 +290,28 @@
     @apply font-sans-semibold text-primary text-sm;
   }
 
+  .auth-input-wrap {
+    @apply relative;
+  }
+
   .auth-input {
-    @apply border-border bg-background font-sans-medium text-primary rounded-2xl border px-4 py-4 text-base;
+    @apply border-border bg-background font-sans-medium text-primary rounded-2xl border py-4 pr-4 pl-5 text-base;
+  }
+
+  .auth-input-secure {
+    @apply pr-16;
+  }
+
+  .auth-input-toggle {
+    @apply absolute right-4 top-0 bottom-0 justify-center;
+  }
+
+  .auth-input-toggle-text {
+    @apply font-sans-semibold text-accent text-sm;
+  }
+
+  .auth-forgot-link {
+    @apply self-end;
   }
 
   .auth-input-error {
@@ -348,6 +368,30 @@
 
   .auth-link {
     @apply font-sans-bold text-accent text-sm;
+  }
+
+  .settings-title {
+    @apply font-sans-bold text-primary mb-6 text-3xl;
+  }
+
+  .settings-card {
+    @apply border-border bg-card rounded-3xl border p-5;
+  }
+
+  .settings-label {
+    @apply font-sans-medium text-muted-foreground text-sm;
+  }
+
+  .settings-value {
+    @apply font-sans-semibold text-primary mt-1 text-base;
+  }
+
+  .settings-sign-out {
+    @apply bg-accent mt-8 items-center rounded-2xl py-4;
+  }
+
+  .settings-sign-out-text {
+    @apply font-sans-bold text-primary text-base;
   }
 
   .modal-overlay {
