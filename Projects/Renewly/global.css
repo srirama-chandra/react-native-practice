@@ -370,6 +370,30 @@
     @apply font-sans-bold text-accent text-sm;
   }
 
+  .subs-title {
+    @apply font-sans-bold text-primary mb-4 text-3xl;
+  }
+
+  .subs-search {
+    @apply border-border bg-card mb-2 flex-row items-center rounded-2xl border px-4;
+  }
+
+  .subs-search-input {
+    @apply font-sans-medium text-primary min-w-0 flex-1 py-4 text-base;
+  }
+
+  .subs-search-clear {
+    @apply py-2 pl-2;
+  }
+
+  .subs-search-clear-text {
+    @apply font-sans-semibold text-muted-foreground text-sm;
+  }
+
+  .subs-count {
+    @apply font-sans-medium text-muted-foreground mb-5 text-sm;
+  }
+
   .settings-title {
     @apply font-sans-bold text-primary mb-6 text-3xl;
   }

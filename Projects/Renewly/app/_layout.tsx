@@ -4,6 +4,7 @@ import "@/global.css";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
@@ -26,8 +27,10 @@ export default function RootLayout() {
 
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-      <StatusBar style="inverted" />
-      <RootNavigator fontsLoaded={fontsLoaded} />
+      <KeyboardProvider>
+        <StatusBar style="inverted" />
+        <RootNavigator fontsLoaded={fontsLoaded} />
+      </KeyboardProvider>
     </ClerkProvider>
   );
 }
